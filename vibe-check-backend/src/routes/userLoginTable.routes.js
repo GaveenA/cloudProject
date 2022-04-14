@@ -1,5 +1,5 @@
 module.exports = (express, app) => {
-  const controller = require("../controllers/userLogintable.controller.js");
+  const controller = require("../controllers/userLoginTable.controller.js");
   const router = express.Router();
 
   // Select all login entries.
