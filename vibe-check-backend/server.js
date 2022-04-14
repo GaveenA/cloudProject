@@ -26,7 +26,7 @@ require("./src/routes/userFriendships.routes.js")(express, app);
 require("./src/routes/userLoginTable.routes.js")(express, app);
 
 // Set port, listen for requests.
-const PORT = 4000;
+const PORT = 3306;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
