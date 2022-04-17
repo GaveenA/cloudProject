@@ -1,4 +1,6 @@
 import S3 from "react-aws-s3";
+
+
 /**
  * Funciton to perform Image upload to S3
  * @param {File} file 
@@ -6,6 +8,8 @@ import S3 from "react-aws-s3";
  * @param {String} newFileExtension 
  * @returns Promise
  */
+
+/*
 export function UploadToCloud(file, newFileName, newFileExtension) {
   const staticURl = "https://fwpbucket.s3.ap-southeast-2.amazonaws.com/";
   const directory = "fwp/";
@@ -38,6 +42,7 @@ export function UploadToCloud(file, newFileName, newFileExtension) {
           resolve(response);
         } else {
           console.log("file upload fail");
+          console.log("Response: " + data)
           const response = {
             status: false,
             data: data,
@@ -47,6 +52,7 @@ export function UploadToCloud(file, newFileName, newFileExtension) {
       })
       .catch((err) => {
         console.log("file upload error");
+        console.log("Error: " + err)
         const response = {
           status: false,
           data: err,
@@ -55,7 +61,69 @@ export function UploadToCloud(file, newFileName, newFileExtension) {
       });
   });
 }
+*/
 
+export function UploadToCloud(file, newFileName, newFileExtension) {
+
+    // Load the SDK for JavaScript
+  var AWS = require('aws-sdk');
+  // Set the Region and Credentials 
+
+  AWS.config.update({
+    region: process.env.REACT_APP_REGION,
+    apiVersion: 'latest',
+    credentials: {
+      accessKeyId: process.env.REACT_APP_ACCESS_ID,
+      secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
+      sessionToken: process.env.REACT_APP_SESSION_TOKEN,
+    }
+  })
+
+  // Create S3 service object
+  var s3 = new AWS.S3({apiVersion: '2006-03-01'});
+
+  // call S3 to retrieve upload file to specified bucket
+  var uploadParams = {Bucket: 'common-room-bucket', Key: newFileName, Body:file };
+  var file = process.argv[3];
+
+  // Configure the file stream and obtain the upload parameters
+  // var fs = require('fs');
+  // var fileStream = fs.createReadStream(file);
+  // fileStream.on('error', function(err) {
+  //   console.log('File Error', err);
+  // });
+
+  //uploadParams.Body = fileStream;
+  // uploadParams.Body = file;
+  // var path = require('path');
+  // uploadParams.Key = path.basename(file);
+
+  // call S3 to retrieve upload file to specified bucket
+  
+  
+
+  return new Promise((resolve, reject) => {
+    s3.upload (uploadParams, function (err, data) {
+      if (err) {
+        console.log("Response: " + err)
+          const response = {
+            status: false,
+            data: data,
+            error: err
+          };
+          reject(response);
+      } if (data) {
+        console.log("Upload Success", data.Location);
+        const response = {
+          status: true,
+          data: data,
+        };
+        resolve(response);
+      }
+    });
+
+  });
+}
 
 
 /* References: 

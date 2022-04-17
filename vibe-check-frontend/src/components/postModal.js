@@ -163,9 +163,10 @@ export default function PostModal({
         setShowLoadingSpinner(true);
         const response = await UploadToCloud(file, newFileName, fileExt);
         console.log("uplaod response: " + response);
+        console.log(response);
 
         if (response.status === true) {
-          postObj.image_url = response?.data?.location;
+          postObj.image_url = response?.data?.Location;
         }
       } catch (err) {
         console.log("Upload Failed" + err);
