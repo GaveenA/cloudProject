@@ -245,10 +245,10 @@ exports.create = async (req, res) => {
   } catch (e) {
     console.log("\n\nCreate user error\n");
     console.log(e);
-    if(e.fields.users.email == req.body.email){
+    if(e.fields?.users?.email == req.body.email){
       errorHandler(res, 201,"Invalid Email", e )
     }
-    else if(e.fields.users.PRIMARY == req.body.username){
+    else if(e.fields?.users?.PRIMARY == req.body.username){
       errorHandler(res, 202,"Invalid Username", e )
     }
     else{
