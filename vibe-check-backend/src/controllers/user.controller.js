@@ -243,6 +243,8 @@ exports.create = async (req, res) => {
       responseHandler(res, 200 ,user)
     }
   } catch (e) {
+    console.log("\n\nCreate user error\n");
+    console.log(e);
     if(e.fields.email == req.body.email){
       errorHandler(res, 201,"Invalid Email", e )
     }
