@@ -91,9 +91,10 @@ const getConfig = (email, password) => {
       };
 
       const submit_login_res = await submitLogin(data.email, data.password)
+      console.log(submit_login_res);
       if(submit_login_res.responseType === "success"){
         const userObj = submit_login_res.serverResponse;
-        if(userObj.blocked === false){
+        if(userObj?.blocked === false || userObj?.blocked === 0 ){
           await addUserLoginDetail({ username: userObj.username, date: Date.now()});
           setLoggedUser(userObj)
           setUser(userObj);

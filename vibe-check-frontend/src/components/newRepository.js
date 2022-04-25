@@ -28,14 +28,29 @@ export const getLoggedUser = () => {
  * @returns {responseType: String, serverResponse: Res Object }
  */
 export const submitSignup = async (userData) => {
+  const LAMBDA_SIGNUP_URL = 'https://bmp2r46nm3.execute-api.us-east-1.amazonaws.com/default/create-user-lambda';
   var config = {
     method: "post",
-    url: API_URL + "/api/users/",
+    // url: API_URL + "/api/users/",
+    url: LAMBDA_SIGNUP_URL,
     timeout: 10000,
     headers: {
       "Content-Type": "application/json",
     },
     data: userData,
+
+    // method: 'post',
+    // url: 'https://bmp2r46nm3.execute-api.us-east-1.amazonaws.com/default/create-user-lambda',
+    // // headers: { 
+    // //   'Content-Type': 'application/json'
+    // // },
+    // headers: {
+    //   // "Accept": "*/*",
+    //     // "Accept-Encoding": "gzip, deflate, br",
+    //     "Content-Type": "application/json",
+    //     // "Host": "tpaduyvori.execute-api.us-east-1.amazonaws.com"
+    // },
+    // data: userData,
   };
 
   try {
@@ -68,15 +83,19 @@ export const submitSignup = async (userData) => {
  * @returns {responseType: String, serverResponse: Res Object }
  */
 export const submitLogin = async (email, password) => {
+  const LAMBDA_URL = 'https://q94hkhwwac.execute-api.us-east-1.amazonaws.com/default/user-login-lambda-function'
   var config = {
     method: "get",
-    url: API_URL + `/api/users/login?email=${email}&password=${password}`,
+    // url: API_URL + `/api/users/login?email=${email}&password=${password}`,
+    url: LAMBDA_URL  + `?email=${email}&password=${password}`,
     timeout: 10000,
     headers: {},
   };
 
   try {
     let res = await axios(config);
+    console.log("Submit login Response");
+    console.log(res);
     if (res.status == 200) {
       console.log(res.status);
       return { responseType: "success", serverResponse: res.data?.data };

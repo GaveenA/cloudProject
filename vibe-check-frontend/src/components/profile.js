@@ -148,7 +148,8 @@ const Profile = () => {
         if (response.status === true) {
           const userUpdateData = {
             username: user?.username,
-            profile_pic_url: response?.data?.location,
+            // When changed to AWS Lambda for uploadToCloud, the img location is now at response?.data?.Location,  earlier at response?.data?.location
+            profile_pic_url: response?.data?.Location,
           };
 
           const res = await editUserProfile(userUpdateData);
@@ -157,7 +158,8 @@ const Profile = () => {
           }
           setUser({
             ...user,
-            ["profile_pic_url"]: String(response?.data?.location),
+             // When changed to AWS Lambda for uploadToCloud, the img location is now at response?.data?.Location,  earlier at response?.data?.location
+            ["profile_pic_url"]: String(response?.data?.Location),
           });
           // setProfilePictureUrl(response?.data?.location);
           

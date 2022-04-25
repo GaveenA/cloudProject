@@ -99,7 +99,8 @@ export default function SignUp() {
         email: trimmedFields?.email,
         username: trimmedFields?.username,
         password: trimmedFields?.password,
-        date_joined: new Date().toLocaleDateString(),
+        // date_joined: new Date().toLocaleDateString(),
+        date_joined: new Date(),
         profile_pic_url: null,
         blocked: false,
       };

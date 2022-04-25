@@ -86,6 +86,14 @@ export default App;
 
 
 /* References: 
+  The VibeCheck Full stack application was not completly developed during Cloud Computing Assignment 1 time frame. 
+
+  The inception of this VibeCheck Application was during Further Web Programming COSC2758, a class that I Hewa Annakkage Gaveen Amarapala (s3766914) undertook in
+  Semester 2 - 2021. During this (FWP) course I developed the VibeCheck fullstack application as part of course requirements, 
+  and when  I undertook Cloud Computing in Semester 1 2022 i thoght it was the perfect oppertunity for me to deploy my VibeCheck Application to the cloud, 
+  as I am very passionate about this Application, which I consider to be one of my biggest wins as a Software Enginner, and a project I'm very proud of. 
+
+
  React:
     useMemo: https://reactjs.org/docs/hooks-reference.html
     React Router: https://reactrouter.com/
