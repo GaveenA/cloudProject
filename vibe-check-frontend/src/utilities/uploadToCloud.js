@@ -75,7 +75,7 @@ export function UploadToCloud(file, newFileName, newFileExtension) {
     credentials: {
       accessKeyId: process.env.REACT_APP_ACCESS_ID,
       secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
-      sessionToken: process.env.REACT_APP_SESSION_TOKEN,
+      // sessionToken: process.env.REACT_APP_SESSION_TOKEN,
     }
   })
 
@@ -83,7 +83,7 @@ export function UploadToCloud(file, newFileName, newFileExtension) {
   var s3 = new AWS.S3({apiVersion: '2006-03-01'});
 
   // call S3 to retrieve upload file to specified bucket
-  var uploadParams = {Bucket: 'common-room-bucket', Key: newFileName, Body:file };
+  var uploadParams = {Bucket: process.env.REACT_APP_BUCKET_NAME, Key: process.env.REACT_APP_DIR_NAME + '/' + newFileName, Body:file };
   var file = process.argv[3];
 
   // Configure the file stream and obtain the upload parameters

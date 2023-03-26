@@ -28,7 +28,7 @@ export const getLoggedUser = () => {
  * @returns {responseType: String, serverResponse: Res Object }
  */
 export const submitSignup = async (userData) => {
-  const LAMBDA_SIGNUP_URL = 'https://bmp2r46nm3.execute-api.us-east-1.amazonaws.com/default/create-user-lambda';
+  const LAMBDA_SIGNUP_URL = 'https://9bucwrd22b.execute-api.us-east-1.amazonaws.com/default/create-user-lambda';
   var config = {
     method: "post",
     // url: API_URL + "/api/users/",
@@ -83,13 +83,20 @@ export const submitSignup = async (userData) => {
  * @returns {responseType: String, serverResponse: Res Object }
  */
 export const submitLogin = async (email, password) => {
-  const LAMBDA_URL = 'https://q94hkhwwac.execute-api.us-east-1.amazonaws.com/default/user-login-lambda-function'
+  const LAMBDA_URL = 'https://12br49ozw6.execute-api.us-east-1.amazonaws.com/default/user-login-lambda'
   var config = {
-    method: "get",
+    method: "post",
     // url: API_URL + `/api/users/login?email=${email}&password=${password}`,
-    url: LAMBDA_URL  + `?email=${email}&password=${password}`,
+    // url: LAMBDA_URL  + `?email=${email}&password=${password}`,
+    url: LAMBDA_URL,
     timeout: 10000,
-    headers: {},
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: {
+      email: email,
+      password: password
+    }
   };
 
   try {

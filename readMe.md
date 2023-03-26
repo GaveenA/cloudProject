@@ -128,6 +128,15 @@ References are detailed in the bottom of all files based on usage in the file
 
 All References Used (Summation): 
 
+RMIT Cloud Computng Tutorials Week 3 and 5
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html
+https://aws.amazon.com/architecture/icons/
+https://docs.aws.amazon.com/elasticbeanstalk
+https://www.mysqltutorial.org/mysql-nodejs/
+https://www.mysqltutorial.org/mysql-nodejs/connect/
+https://www.mysqltutorial.org/mysql-nodejs/select/
+https://www.youtube.com/watch?v=wGDiOkqtUWA&ab_channel=AmazonWebServices
+
 https://material-ui.com/getting-started/templates/
 https://formik.org/docs/guides/validation
 https://formik.org/docs/examples/with-material-ui
