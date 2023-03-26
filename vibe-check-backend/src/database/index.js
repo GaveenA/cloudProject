@@ -6,7 +6,10 @@ const db = {
 };
 
 // Create Sequelize.
-db.sequelize = new Sequelize(config.DB, config.USER, config.PASSWORD, {
+db.sequelize = new Sequelize(
+  config.DB, 
+  config.USER, 
+  config.PASSWORD, {
   host: config.HOST,
   dialect: config.DIALECT,
 });

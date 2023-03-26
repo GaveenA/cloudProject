@@ -1,9 +1,20 @@
 const express = require("express");
 const cors = require("cors");
 const db = require("./src/database");
+require('dotenv').config();
+console.log(process.env.DB_NAME);
+console.log(process.env.DB_USER);
+console.log(process.env.DB_HOST);
+console.log(process.env.DB_PASSWORD);
+console.log(process.env.DB_DIALECT);
 
 // Database will be sync'ed in the background.
-db.sync();
+
+try{
+  db.sync();
+}catch(e){
+  console.log(e);
+}
 
 const app = express();
 
