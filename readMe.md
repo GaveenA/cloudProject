@@ -1,11 +1,13 @@
-# Cloud Project - Assignment 1
-# By: Hewa Gaveen Amarapala - s3766914
+# Cloud Project - VibeCheck
+### By: Gaveen A
+
+
+## VibeCheck is a social media application built with React JS, Node JS, and deployed on AWS
 
 
 
-
-# Important - Please Note: 
-# The Vibe Check Application (end user application) does Image uplaod to Amazon S3, - Please ensure required '.env' file is available when running applcation - This is a hidden file in the 'vibe-check-frontend' directory (visible on VS code)
+## Important - Please Note: 
+## The Vibe Check Application (end user application) does Image uplaod to Amazon S3, - Please ensure required '.env' file is available when running applcation - This is a hidden file in the 'vibe-check-frontend' directory (visible on VS code)
 
 All images including in User Avatar and images posted by users are uploaded and fetched from Amazon S3
 Please make sure the required env file containg required Access Keys and Access ID's are available for Image Upload to work
@@ -17,7 +19,7 @@ The '.env' file shoud be present in the 'vibe-check-frontend' directory as a Hid
 
 
 
-# The Vibecheck Application require conneciton to MySQL database.  - Please ensure required config.js file is available when running backend of VibeCheck applcation and Admin Dashboard application (running either locally or on EC2)
+## The Vibecheck Application require conneciton to MySQL database.  - Please ensure required config.js file is available when running backend of VibeCheck applcation and Admin Dashboard application (running either locally or on EC2)
 
 The config files for conneting to the Database on project backend folder have not been uploaded to GIT for privacy, but have been submitted in final submission to Canvas , please ensure config files are present in project backends for VibeCheck applicaiton to function correctly. 
 
@@ -25,7 +27,7 @@ The config files for conneting to the Database on project backend folder have no
 
 
 
-# Directions to Start VibeCheck Application:
+## Directions to Start VibeCheck Application:
 
 AWS Cli and EB cli must be installed - check Cloud computng - Tutorial 1 
 
@@ -65,9 +67,9 @@ To start VibeCheck Application Frontend on Elastic Beanstalk
 
 
 
-# Available Functionality
+## Available Functionality
 
-# VibeCheck Application Functionality (end user application)
+## VibeCheck Application Functionality (end user application)
 1. Sign Up - Allow user to sign up, username and email must be unique - All details saved in database 
 2. Login - Allow user to sign in with credentials - All details fetched and verified from database 
 3. Forum - Allow Signed in users to make posts and view post made by other users 
@@ -118,7 +120,7 @@ To start VibeCheck Application Frontend on Elastic Beanstalk
         
 
 
-# References 
+## References 
 The VibeCheck Full stack application was not completly developed during Cloud Computing Assignment 1 time frame. 
 
 The inception of this VibeCheck Application was during Further Web Programming COSC2758, a class that I Hewa Annakkage Gaveen Amarapala (s3766914) undertook in
