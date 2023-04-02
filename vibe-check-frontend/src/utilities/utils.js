@@ -1,7 +1,10 @@
 import sanitizeHtml from "sanitize-html";
 
 //export const API_URL = "http://localhost:4000"
-export const API_URL = "http://ec2-3-225-112-124.compute-1.amazonaws.com:3306"
+// export const API_URL = "http://ec2-3-225-112-124.compute-1.amazonaws.com:3306"
+
+// Added HTTPS proxy integration for backend API to work with AWS API Gateway, and hack the Mixed Content error (where the browser blocks HTTP requests from HTTPS pages) by using a proxy.
+export const API_URL = "https://91ip4zg511.execute-api.us-east-1.amazonaws.com"
 
 /*
 Funciton: trimFieldsAndSanitize  
