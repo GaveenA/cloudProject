@@ -68,6 +68,10 @@ export default function EditProfileModal({
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[,.?':;!"])(?=.*[@#$%^&*+=_~<>|])[A-Za-z\d,.?':;!"@#$%^&*+=_~<>|]{6,}$/,
         "Must Contain atleast 6 Characters and atleast One Uppercase, One Lowercase, One Number, One Punctuation and One Special-Case Character"
       ),
+      password_confirmation: yup
+      .string("Confirm New Password")
+      .required("Password Confirmation is required")
+      .oneOf([yup.ref('password'), null], 'Passwords must match'),
   });
   /* validate user inputs */
   const formik = useFormik({
@@ -77,6 +81,7 @@ export default function EditProfileModal({
       last_name: user?.last_name,
       email: user?.email,
       password: null,
+      password_confirmation: null,
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
@@ -183,6 +188,20 @@ export default function EditProfileModal({
               onChange={formik.handleChange}
               error={formik.touched.password && Boolean(formik.errors.password)}
               helperText={formik.touched.password && formik.errors.password}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              variant="outlined"
+              fullWidth
+              name="password_confirmation"
+              label="Confirm New Password"
+              type="password"
+              id="password_confirmation"
+              value={formik.values.password_confirmation}
+              onChange={formik.handleChange}
+              error={formik.touched.password_confirmation && Boolean(formik.errors.password_confirmation)}
+              helperText={formik.touched.password_confirmation && formik.errors.password_confirmation}
             />
           </Grid>
         </Grid>

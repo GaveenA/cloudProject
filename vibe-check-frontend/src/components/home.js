@@ -84,8 +84,7 @@ function Home() {
               <p></p>
               <p></p>
               <Typography variant="h6">
-                VibeCheck provides a safe space to connect with all your friends
-                and engage with the broader college community at University.
+                Connect, create, and engage with a community that shares your interests and passions.
               </Typography>
               <p></p>
             </Grid>
@@ -99,10 +98,10 @@ function Home() {
               <Typography variant="h3">Why you should join?</Typography>
               <p></p>
               <Typography variant="h6">
-                Here at VibeCheck you can catch up with all your friends,
-                exchange lockdown stories collaborate on uni projects, all from
-                the comfort of your own home and most importantly without
-                violating lockdown rules.
+                Here at VibeCheck you can connect with like-minded individuals, 
+                stay updated on the latest trends, and showcase your creativity. 
+                Build a community around your interests and passions, and engage with others who share your vision. 
+                We can't wait to have you join us!
               </Typography>
             </Grid>
           </Paper>

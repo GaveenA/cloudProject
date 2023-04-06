@@ -28,7 +28,7 @@ const validationSchema = yup.object({
     .string("Enter your email")
     .email("Enter a valid email")
     .required("Email is required"),
-  username: yup
+  username_field: yup
     .string("Enter a Username")
     .min(3, "Username should be of minimum 3 characters length")
     .required("Username is required")
@@ -44,6 +44,10 @@ const validationSchema = yup.object({
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[,.?':;!"])(?=.*[@#$%^&*+=_~<>|])[A-Za-z\d,.?':;!"@#$%^&*+=_~<>|]{6,}$/,
       "Must Contain atleast 6 Characters and atleast One Uppercase, One Lowercase, One Number, One Punctuation and One Special-Case Character"
     ),
+    password_confirmation: yup
+    .string("Confirm Password")
+    .required("Password Confirmation is required")
+    .oneOf([yup.ref('password'), null], 'Passwords must match'),
 });
 
 const useStyles = makeStyles((theme) => ({
@@ -85,8 +89,9 @@ export default function SignUp() {
       first_name: "",
       last_name: "",
       email: "",
-      username: "",
+      username_field: "",
       password: "",
+      password_confirmation: "",
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
@@ -97,7 +102,7 @@ export default function SignUp() {
         first_name: trimmedFields?.first_name,
         last_name: trimmedFields?.last_name,
         email: trimmedFields?.email,
-        username: trimmedFields?.username,
+        username: trimmedFields?.username_field,
         password: trimmedFields?.password,
         // date_joined: new Date().toLocaleDateString(),
         date_joined: new Date(),
@@ -185,14 +190,15 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                id="username"
-                name="username"
-                autoComplete="username"
+                id="username_field"    // renamed to 'username_field' to prevent chrome from storing username instead of email     
+                name="username_field"     
+                // autocomplete="username"
+                autoComplete="off"     // setting autocomplete off for username - prevents chrome from storing username instead of email
                 label="Username"
-                value={formik.values.username}
+                value={formik.values.username_field}
                 onChange={formik.handleChange}
-                error={formik.touched.username && Boolean(formik.errors.username)}
-                helperText={formik.touched.username && formik.errors.username}
+                error={formik.touched.username_field && Boolean(formik.errors.username_field)}
+                helperText={formik.touched.username_field && formik.errors.username_field}
               />
             </Grid>
             <Grid item xs={12}>
@@ -200,9 +206,11 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
+                type="email"
                 id="email"
                 name="email"
-                autoComplete="email"
+                // autoComplete="email"
+                // autoComplete="off"
                 label="Email Address"
                 value={formik.values.email}
                 onChange={formik.handleChange}
@@ -219,12 +227,31 @@ export default function SignUp() {
                 label="Password"
                 type="password"
                 id="password"
+                autoComplete="new-password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 error={
                   formik.touched.password && Boolean(formik.errors.password)
                 }
                 helperText={formik.touched.password && formik.errors.password}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password_confirmation"
+                label="Confirm Password"
+                type="password"
+                id="password_confirmation"
+                autoComplete="new-password"
+                value={formik.values.password_confirmation}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.password_confirmation && Boolean(formik.errors.password_confirmation)
+                }
+                helperText={formik.touched.password_confirmation && formik.errors.password_confirmation}
               />
             </Grid>
           </Grid>
